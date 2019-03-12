@@ -1,22 +1,11 @@
 version ?= 0.9.0
 
-ci: clean deps lint package
-
-deps:
-	gem install bundler
-	bundle install --binstubs
+ci: clean lint package
 
 clean:
 	rm -rf .bundle/ bin/ stage/ *.lock
 
 lint:
-	bundle exec puppet-lint \
-		--fail-on-warnings \
-		--no-140chars-check \
-		--no-autoloader_layout-check \
-		--no-documentation-check \
-		./modules/aem_helloworld/manifests/*.pp
-	bundle exec rubocop
 	shellcheck *.sh
 
 package: clean
@@ -35,4 +24,4 @@ package: clean
 		--exclude="Makefile" \
 	  .
 
-.PHONY: ci clean deps lint package
+.PHONY: ci clean lint package
