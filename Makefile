@@ -10,6 +10,7 @@ lint:
 
 package: clean
 	mkdir -p stage
+	chmod +x *.sh
 	tar \
 	  -zcvf stage/aem-helloworld-custom-manager-steps-$(version).tar.gz \
     --exclude="*.DS_Store" \
