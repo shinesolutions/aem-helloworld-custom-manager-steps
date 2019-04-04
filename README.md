@@ -9,8 +9,10 @@ This artifact contains:
 * `stage-post-common.sh` shell script which will be executed after each build stage execution
 * `pipeline-pre-common.sh` shell script which will be executed before each build pipeline execution
 * `pipeline-post-common.sh` shell script which will be executed after each build pipeline execution
+* `exec-pre-common.sh` shell script which will be executed before each command execution
+* `exec-post-common.sh` shell script which will be executed after each command execution
 
-One example use case of these Custom Manager Steps is for authentication. A user might need to retrieve temporary credential from AWS [Security Token Service](https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) and this can be done either once per pipeline or once per stage as a pre step.
+One example use case of these Custom Manager Steps is for authentication. A user might need to retrieve temporary credential from AWS [Security Token Service](https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html) and this can be done either once per pipeline, once per stage, or once per command execution as a pre step.
 
 ## Usage
 
