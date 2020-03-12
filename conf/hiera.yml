@@ -1,0 +1,9 @@
+---
+version: 5
+defaults:
+  datadir: "/tmp/shinesolutions/aem-helloworld-custom-manager-steps/"
+  data_hash: yaml_data
+hierarchy:
+  - name: Hiera Data
+    paths:
+      - aws/aws_assume_role.yaml
