@@ -6,8 +6,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-BASE_DIR=$(dirname "{$0}")
-EXEC_TYPE="{$1}"
+EXEC_TYPE=$1
 
 # Translate puppet detailed exit codes to basic convention 0 to indicate success.
 # More info on Puppet --detailed-exitcodes https://puppet.com/docs/puppet/5.3/man/agent.html
@@ -30,7 +29,8 @@ set +o errexit
 
 /opt/puppetlabs/bin/puppet apply \
   --detailed-exitcodes \
-  --modulepath "${BASE_DIR}"/modules \
+  --modulepath "provisioners/puppet/modules" \
+  --hiera_config "conf/hiera.yml" \
   --execute "include aem_helloworld::${EXEC_TYPE}"
 
 translate_puppet_exit_code "$?"
