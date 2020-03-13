@@ -66,7 +66,7 @@ Puppet::Functions.create_function(:aws_assume_role) do
     puts "\nRecord assumed credentials..."
 
     File.open(credential_file, "w") do |f|
-      f.write "[assume_role]\naws_access_key_id=#{access_key_id}\naws_secret_access_key=#{secret_access_key}\naws_session_token=#{session_token}\nexpiration=#{expiration}\n"
+      f.write "[assume_role]\naws_access_key_id=#{access_key_id}\naws_secret_access_key=#{secret_access_key}\naws_security_token=#{session_token}\nexpiration=#{expiration}\n"
     end
   end
 end
