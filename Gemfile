@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'puppet-lint', '2.3.6', require: false
-gem 'rubocop', '0.69.0', require: false
 gem 'aws-sdk', '~> 3', require: false
 gem 'inspec', require: false
+gem 'puppet-lint', '2.3.6', require: false
+gem 'rubocop', '0.69.0', require: false
