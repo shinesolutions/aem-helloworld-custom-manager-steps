@@ -34,7 +34,7 @@ class aem_helloworld::create_assume_role (
     ]
   }
 
-  create_assume_role { 'AssumeRole':
+  aws_assume_role { 'AssumeRole':
     ensure          => present,
     duration_time   => $duration_time,
     session_name    => $session_name,
