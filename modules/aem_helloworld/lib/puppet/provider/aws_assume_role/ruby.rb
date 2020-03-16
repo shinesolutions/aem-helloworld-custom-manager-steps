@@ -80,7 +80,7 @@ def make_credentials_file(credential_file)
 end
 
 def write_in_file(file_path, content)
-  File.open(file_path, 'w') do |f|
+  File.open(file_path, 'a') do |f|
     f.write content
   end
 end
