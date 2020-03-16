@@ -9,19 +9,37 @@
 # @example:
 #   helloworld::aws_assume_role { 'test':
 #     duration_time   => 900,
-#     session_name    => "TempRoleSession",
+#     session_name    => "TempSessionRole",
 #     region_name     => "ap-southeast-2",
 #     assume_policy   => ["s3:*"]
 #     credential_file => "/tmp"
 #   }
 #
-class aem_helloworld::aws_assume_role (
-  $duration_time = 900, # 15mins
-  $session_name,
-  $region_name,
-  $assume_policy,
-  $credential_file,
+class aem_helloworld::create_assume_role (
+  $duration_time   = 900, # 15mins
+  $session_name    = '',
+  $region_name     = '',
+  $assume_policy   = '',
+  $credential_file = '',
 ) {
 
-  aws_assume_role($duration_time, $session_name, $region_name, $assume_policy, $credential_file)
+  $assume_doc = {
+    'Version'   => '2012-10-17',
+    'Statement' => [
+      {
+        'Effect'   => 'Allow',
+        'Action'   => $assume_policy,
+        'Resource' => '*'
+      }
+    ]
+  }
+
+  create_assume_role { 'AssumeRole':
+    ensure          => present,
+    duration_time   => $duration_time,
+    session_name    => $session_name,
+    region_name     => $region_name,
+    credential_file => $credential_file,
+    policy_document => $assume_doc
+  }
 }

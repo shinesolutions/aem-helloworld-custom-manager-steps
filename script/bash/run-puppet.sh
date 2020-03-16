@@ -29,7 +29,7 @@ set +o errexit
 
 /opt/puppetlabs/bin/puppet apply \
   --detailed-exitcodes \
-  --modulepath "provisioners/puppet/modules" \
+  --modulepath "modules" \
   --hiera_config "conf/hiera.yml" \
   --execute "include aem_helloworld::${EXEC_TYPE}"
 

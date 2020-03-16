@@ -10,7 +10,7 @@ clean:
 	rm -rf .bundle/ bin/ stage/ *.lock
 
 lint:
-	shellcheck *.sh
+	shellcheck *.sh ./script/bash/*.sh
 	bundle exec puppet-lint \
 		--fail-on-warnings \
 		--no-140chars-check \

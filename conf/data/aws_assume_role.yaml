@@ -1,7 +1,7 @@
 ---
-aem_helloworld::aws_assume_role::duration_time: 900
-aem_helloworld::aws_assume_role::session_name: "AssumeRoleSession"
-aem_helloworld::aws_assume_role::region_name: "ap-southeast-2"
-aem_helloworld::aws_assume_role::assume_policy: ["route53:*"]
-aem_helloworld::aws_assume_role::credential_file: "/%{hiera('aem_helloworld::user')}/.aws/credentials"
+aem_helloworld::create_assume_role::duration_time: 900
+aem_helloworld::create_assume_role::session_name: "AssumeSessionRole"
+aem_helloworld::create_assume_role::region_name: "ap-southeast-2"
+aem_helloworld::create_assume_role::assume_policy: ["route53:*"]
+aem_helloworld::create_assume_role::credential_file: "/%{hiera('aem_helloworld::user')}/.aws/credentials"
 aem_helloworld::user: "root"
