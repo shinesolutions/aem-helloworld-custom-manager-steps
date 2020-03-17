@@ -1,0 +1,10 @@
+---
+version: 5
+defaults:
+  datadir: data
+  data_hash: yaml_data
+hierarchy:
+  - name: Hiera Data
+    paths:
+      - aws_assume_role.yaml
+    data_hash: yaml_data
