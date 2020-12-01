@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/shinesolutions/aem-helloworld-custom-manager-steps.svg)](http://travis-ci.org/shinesolutions/aem-helloworld-custom-manager-steps)
+[![Build Status](https://github.com/shinesolutions/aem-helloworld-custom-manager-steps/workflows/CI/badge.svg)](https://github.com/shinesolutions/aem-helloworld-custom-manager-steps/actions?query=workflow%3ACI)
 
 # AEM Hello World Custom Manager Steps
 
