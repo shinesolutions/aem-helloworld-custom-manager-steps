@@ -25,4 +25,9 @@ package: clean
 		--exclude="Makefile" \
 	  .
 
+ deps:
+	 gem install bundler --version=1.17.3
+	 bundle install --binstubs -j4
+	 bundle exec r10k puppetfile install --verbose --moduledir modules
+
 .PHONY: ci clean lint package
