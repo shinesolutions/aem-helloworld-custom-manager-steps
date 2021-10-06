@@ -21,8 +21,24 @@ package: clean
 		--exclude="*.lock*" \
     --exclude="*.bundle*" \
     --exclude=".*.yml" \
+	--exclude=".rtk.json" \
 		--exclude="Gemfile" \
 		--exclude="Makefile" \
 	  .
 
-.PHONY: ci clean lint package
+publish:
+	gh release create $(version) --title $(version) --notes "" || echo "Release $(version) has been created on GitHub"
+	gh release upload $(version) stage/aem-helloworld-custom-manager-steps-$(version).tar.gz
+
+release-major:
+	rtk release --release-increment-type major
+
+release-minor:
+	rtk release --release-increment-type minor
+
+release-patch:
+	rtk release --release-increment-type patch
+
+release: release-minor
+
+.PHONY: ci clean lint package publish release release-major release-minor release-patch
